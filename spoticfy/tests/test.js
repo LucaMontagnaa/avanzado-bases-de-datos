@@ -78,6 +78,8 @@ const testGet = async (table) => {
             { Test: `GET /${table}`, Resultado: ERROR_MSG },
             { color: "red" }
         );
+        console.log("Test GET /" + table + ": ");
+        console.log("Error: " + error);
         return false;
     }
 
@@ -90,7 +92,9 @@ const testGet = async (table) => {
         JSON.stringify(APIData.data, Object.keys(APIData.data).sort())
     ) {
         console.log("Test GET /" + table + ": ");
+        console.log("Esperado:");
         console.table(currentData);
+        console.log("Recibido:");
         console.table(APIData.data);
     }
 
@@ -315,9 +319,11 @@ const testGetById = async (table) => {
         JSON.stringify(APIData.data, Object.keys(APIData.data).sort())
     ) {
         console.log("Test GET /" + table + "/:id :");
+        console.log("Esperado:");
         console.log(
             JSON.stringify(lastRegister, Object.keys(lastRegister).sort())
         );
+        console.log("Recibido:");
         console.log(
             JSON.stringify(APIData.data, Object.keys(APIData.data).sort())
         );
