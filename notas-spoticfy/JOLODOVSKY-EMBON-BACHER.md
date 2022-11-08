@@ -4,4 +4,4 @@
 
 ![Tests](JOLODOVSKY-EMBON-BACHER.png)
 
-Nota: **8**
+Nota: **8.5**

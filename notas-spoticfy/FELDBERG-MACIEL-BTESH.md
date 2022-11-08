@@ -4,4 +4,4 @@
 
 ![Tests](FELDBERG-MACIEL-BTESH.png)
 
-Nota: **8**
+Nota: **8.5**

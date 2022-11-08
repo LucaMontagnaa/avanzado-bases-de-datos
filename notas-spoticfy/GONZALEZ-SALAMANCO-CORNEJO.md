@@ -2,6 +2,6 @@
 
 ## GONZALEZ-SALAMANCO-CORNEJO
 
-Entregan vacío
+![Tests](GONZALEZ-SALAMANCO-CORNEJO.png)
 
-Nota: **Reentrega**
+Nota: **8.5**
