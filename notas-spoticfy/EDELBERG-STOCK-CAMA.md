@@ -4,4 +4,4 @@
 
 ![Tests](EDELBERG-STOCK-CAMA.png)
 
-Nota: **Reentrega**
+Nota: **9** (-1 por la reentrega)

@@ -4,4 +4,4 @@
 
 ![Tests](CITERA-VITACCO-MASCARDI.png)
 
-Nota: **Reentrega**
+Nota: **9** (-1 por reentrega)
