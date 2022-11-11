@@ -4,6 +4,4 @@
 
 ![Tests](GENOVESE-PESOBA-CATTANEO.png)
 
-Nota: **Reentrega**
-
-Comentario/Ayuda: Prueben el código antes de reentregar. No tienen errores graves, pero se suman acumulan.
+Nota: **9** (-1 por la reentrega)
