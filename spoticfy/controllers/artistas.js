@@ -17,6 +17,13 @@ const getArtistas = (_, res) => {
             ...
         ]
     */
+   const myInstruction = "SELECT * FROM artistas"; 
+   conn.query(myInstruction, (err, rows) => {
+    if (err) {
+        console.error("Error consultando: " + err);
+    }
+    res.json(rows);
+    });
 };
 
 const getArtista = (req, res) => {
@@ -29,6 +36,16 @@ const getArtista = (req, res) => {
             "nombre": "Nombre del artista"
         }
     */
+        let id = req.params.id;
+        const myInstruction = "SELECT * FROM artistas WHERE artistas.id = ?"; 
+        conn.query(myInstruction, [id], (err, rows) => {
+                if (err) {
+                    console.error("Error consultando: " + err);
+                    return;
+                }
+            
+                res.json(rows[0]);
+        });
 };
 
 const createArtista = (req, res) => {
@@ -40,6 +57,17 @@ const createArtista = (req, res) => {
             "nombre": "Nombre del artista",
         }
     */
+ 
+    let nombre = req.body.nombre;
+    const myInstruction = "INSERT INTO artistas (nombre) VALUES (?)";
+    conn.query(myInstruction, [nombre], err => {
+        if (err) {
+            console.error("Error consultando: " + err);
+            return;
+        }
+
+        res.sendStatus(200);
+    });
 };
 
 const updateArtista = (req, res) => {
@@ -51,17 +79,50 @@ const updateArtista = (req, res) => {
             "nombre": "Nombre del artista"
         }
     */
+    let {id} = req.params.id;
+    let {nombre, artista} = req.body;
+    const myInstruction = "UPDATE artistas SET nombre = ?";
+
+    conn.query(myInstruction, [nombre], err => {
+        if (err) {
+            console.error("Error consultando: " + err);
+            return;
+        }
+
+        res.sendStatus(200);
+    });
 };
 
 const deleteArtista = (req, res) => {
     // Completar con la consulta que elimina un artista
     // Recordar que los parámetros de una consulta DELETE se encuentran en req.params
+    let id = req.params.id;
+    const myInstruction = 'DELETE FROM artistas WHERE id = ?';
+    conn.query(myInstruction, [id], err => { 
+        if (err) {
+            console.error("Error consultando: " + err);
+            return;
+        }
+
+        res.sendStatus(200);
+    });
 };
 
 const getAlbumesByArtista = (req, res) => {
     // Completar con la consulta que devuelve las canciones de un artista 
     // Recordar que los parámetros de una consulta GET se encuentran en req.params
     // Deberían devolver los datos de la misma forma que getAlbumes
+
+    let id = req.params.id;
+    const myInstruction = 'SELECT * FROM albumes JOIN artistas ON artistas.id = ?';
+    conn.query(myInstruction, [id], (err, rows) => { 
+        if (err) {
+            console.error("Error consultando: " + err);
+            return;
+        }
+    
+        res.json(rows);
+    });
 };
 
 const getCancionesByArtista = (req, res) => {
@@ -69,6 +130,17 @@ const getCancionesByArtista = (req, res) => {
     // (tener en cuenta que las canciones están asociadas a un álbum, y los álbumes a un artista)
     // Recordar que los parámetros de una consulta GET se encuentran en req.params
     // Deberían devolver los datos de la misma forma que getCanciones
+    
+    let id = req.params.id;
+    const myInstruction = 'SELECT * FROM canciones JOIN artistas ON artistas.id = ?';
+    conn.query(myInstruction, [id], (err, rows) => { 
+        if (err) {
+            console.error("Error consultando: " + err);
+            return;
+        }
+    
+        res.json(rows);
+    });
 };
 
 module.exports = {
