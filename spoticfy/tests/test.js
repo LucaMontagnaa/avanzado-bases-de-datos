@@ -7,7 +7,9 @@ const { Table } = require("console-table-printer");
 
     npm install axios cli-color console-table-printer
 
-    y luego
+    luego modificar su archivo package.json por el del repo actual
+
+    y luego correr
 
     npm run test
 
